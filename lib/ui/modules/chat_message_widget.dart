@@ -5,12 +5,14 @@ class ChatMessageWidget extends StatelessWidget {
   final String message;
   final User user;
   final bool isMe;
+  final DateTime date;
 
   const ChatMessageWidget(
       {super.key,
       required this.message,
       required this.user,
-      required this.isMe});
+      required this.isMe,
+      required this.date});
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +52,13 @@ class ChatMessageWidget extends StatelessWidget {
                     style: TextStyle(
                       color: isMe ? Colors.white : Colors.black,
                     ),
+                  ),
+                  Text(
+                    date.toString().substring(0, 16),
+                    style: TextStyle(
+                      color: isMe ? Colors.white : Colors.black,
+                    ),
+                    textAlign: TextAlign.end,
                   ),
                 ],
               ),
