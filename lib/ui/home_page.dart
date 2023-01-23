@@ -61,6 +61,7 @@ class _HomePageState extends State<HomePage> {
                   return ChatMessageWidget(
                     message: e.message,
                     user: e.user,
+                    date: e.date,
                     isMe: e.user.id == user!.id,
                   );
                 }).toList();
@@ -139,11 +140,13 @@ class _HomePageState extends State<HomePage> {
                             final Message messageEntity = Message(
                               message: message,
                               user: user,
+                              date: DateTime.now(),
                             );
                             final ChatMessageWidget messageWidget =
                                 ChatMessageWidget(
                               message: message,
                               user: user,
+                              date: DateTime.now(),
                               isMe: true,
                             );
                             await ChatService.addMessage(messageEntity);
@@ -165,12 +168,14 @@ class _HomePageState extends State<HomePage> {
                                     final Message messageEntity = Message(
                                       message: message,
                                       user: user,
+                                      date: DateTime.now(),
                                     );
                                     final ChatMessageWidget messageWidget =
                                         ChatMessageWidget(
                                       message: message,
                                       user: user,
                                       isMe: true,
+                                      date: DateTime.now(),
                                     );
                                     await ChatService.addMessage(messageEntity);
                                     setState(() {
